@@ -1,0 +1,27 @@
+<mdb-card>
+  <mdb-card-body>
+      <h4 class="h4-responsive">File input:</h4>
+      <form>
+          <div class="file-field">
+              <div mdbBtn color="primary" size="sm" class="waves-light" mdbWavesEffect>
+                  <span>Choose file</span>
+                  <input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)"
+                         [uploadInput]="uploadInput">
+              </div>
+              <div class="file-path-wrapper">
+                  <input class="file-path" type="text" placeholder="Upload your file"
+                         [value]="showFiles()">
+              </div>
+          </div>
+      </form>
+      <br> OR
+      <br>
+      <div class="card text-center align-middle" mdbFileDrop
+                (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput"
+                [ngClass]="{ 'is-drop-over': dragOver }">
+          <mdb-card-body>
+              <p>Drag & Drop files here</p>
+          </mdb-card-body>
+      </div>
+  </mdb-card-body>
+</mdb-card>
